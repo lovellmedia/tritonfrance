@@ -1,0 +1,52 @@
+---
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/home-acoustics/", label: "Overview" },
+  { href: "/home-acoustics/history/", label: "History" },
+  { href: "/home-acoustics/technical-deep-dive/", label: "Technical" },
+  { href: "/home-acoustics/ontology/", label: "Ontology" },
+  { href: "/home-acoustics/trends/", label: "Trends" },
+  { href: "/home-acoustics/tools/", label: "Tools" },
+  { href: "/home-acoustics/challenges/", label: "Challenges" },
+];
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-background-light/80 backdrop-blur-md">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex items-center gap-8">
+        <a href="/" class="flex items-center gap-2 text-primary">
+          <span class="material-symbols-outlined text-3xl">surround_sound</span>
+          <span class="text-slate-900 text-lg font-bold tracking-tight">Triton France</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6">
+          {navLinks.slice(1).map((link) => (
+            <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-primary">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white">
+    <div class="px-4 py-2">
+      {navLinks.map((link) => (
+        <a class="block py-2 text-slate-600 hover:text-primary text-sm font-medium" href={link.href}>
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  });
+</script>

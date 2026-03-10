@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tritonfrance.com/sitemap-index.xml

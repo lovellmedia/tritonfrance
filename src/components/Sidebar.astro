@@ -1,0 +1,48 @@
+---
+const { relatedTopics = [], keyPoints = [] } = Astro.props;
+
+const defaultRelated = [
+  { href: "/home-acoustics/history/", label: "History & Evolution" },
+  { href: "/home-acoustics/technical-deep-dive/", label: "Technical Deep-Dive" },
+  { href: "/home-acoustics/ontology/", label: "Ontology & Terms" },
+  { href: "/home-acoustics/trends/", label: "Current Trends" },
+  { href: "/home-acoustics/tools/", label: "Tools & Resources" },
+  { href: "/home-acoustics/challenges/", label: "Challenges" },
+];
+
+const topics = relatedTopics.length > 0 ? relatedTopics : defaultRelated;
+---
+
+<aside class="w-full md:w-72 flex-shrink-0">
+  <div class="sticky top-24 space-y-8">
+    <!-- Related Topics -->
+    <div class="bg-white border border-slate-200 rounded-lg p-6">
+      <h3 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-4">Related Topics</h3>
+      <ul class="space-y-3">
+        {topics.map((topic) => (
+          <li>
+            <a class="text-slate-600 text-sm hover:text-primary transition-colors flex items-center gap-2" href={topic.href}>
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+              {topic.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Key Points -->
+    {keyPoints.length > 0 && (
+      <div class="bg-primary/5 border border-primary/10 rounded-lg p-6">
+        <h3 class="text-primary font-bold text-sm uppercase tracking-widest mb-4">Key Points</h3>
+        <ul class="space-y-3">
+          {keyPoints.map((point) => (
+            <li class="text-slate-600 text-sm flex items-start gap-2">
+              <span class="material-symbols-outlined text-primary text-xs mt-0.5">check_circle</span>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+</aside>

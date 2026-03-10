@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pillarLinks = [
+  { href: "/home-acoustics/", title: "Overview", desc: "Comprehensive introduction to home acoustic principles and terminology" },
+  { href: "/home-acoustics/history/", title: "History", desc: "Evolution of acoustic design from ancient theaters to modern smart homes" },
+  { href: "/home-acoustics/technical-deep-dive/", title: "Technical Deep-Dive", desc: "STC ratings, NRC values, and acoustic measurement science" },
+  { href: "/home-acoustics/ontology/", title: "Ontology", desc: "Complete glossary of acoustic terminology and concepts" },
+  { href: "/home-acoustics/trends/", title: "Trends", desc: "Current developments in residential acoustic design for 2024-2025" },
+  { href: "/home-acoustics/tools/", title: "Tools", desc: "Software, meters, and resources for acoustic analysis" },
+  { href: "/home-acoustics/challenges/", title: "Challenges", desc: "Common problems and solutions in home acoustics" },
+];
+
+const title = "Triton France - Home Acoustic Trends and Technical Vocabulary";
+const description = "Explore home acoustic trends and technical vocabulary. Comprehensive resource covering soundproofing, acoustic treatment, STC ratings, NRC values, and residential sound science.";
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="relative bg-white border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="flex flex-col gap-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+            <span class="material-symbols-outlined text-sm">verified</span>
+            2024-2025 Acoustic Research
+          </div>
+          <h1 class="text-slate-900 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
+            Home Acoustic <span class="text-primary">Trends & Science</span>
+          </h1>
+          <p class="text-slate-600 text-lg sm:text-xl leading-relaxed max-w-xl">
+            Comprehensive technical resource exploring residential acoustics—from soundproofing fundamentals to advanced acoustic treatment vocabulary and measurement standards.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/home-acoustics/" class="bg-primary text-white px-8 py-4 rounded text-base font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all">
+              Explore Topics
+            </a>
+            <a href="/home-acoustics/tools/" class="bg-slate-100 text-slate-900 px-8 py-4 rounded text-base font-bold hover:bg-slate-200 transition-all">
+              View Tools
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-video lg:aspect-square rounded-xl overflow-hidden shadow-2xl bg-slate-200">
+            <div class="w-full h-full bg-gradient-to-br from-primary/20 to-slate-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-9xl text-primary/40">surround_sound</span>
+            </div>
+          </div>
+          <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-xl border border-slate-100 hidden sm:block">
+            <div class="flex items-center gap-4">
+              <div class="p-3 bg-primary/10 rounded-full text-primary">
+                <span class="material-symbols-outlined text-3xl">trending_up</span>
+              </div>
+              <div>
+                <p class="text-sm text-slate-500 font-medium">Market Growth</p>
+                <p class="text-2xl font-bold text-slate-900">$18.7B by 2028</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="flex flex-col gap-1 border-l-2 border-primary/30 pl-6 py-2">
+          <p class="text-slate-500 text-sm font-semibold uppercase tracking-wider">Technical Terms</p>
+          <p class="text-3xl font-bold text-slate-900">200+</p>
+        </div>
+        <div class="flex flex-col gap-1 border-l-2 border-primary/30 pl-6 py-2">
+          <p class="text-slate-500 text-sm font-semibold uppercase tracking-wider">STC Ratings</p>
+          <p class="text-3xl font-bold text-slate-900">25-70</p>
+        </div>
+        <div class="flex flex-col gap-1 border-l-2 border-primary/30 pl-6 py-2">
+          <p class="text-slate-500 text-sm font-semibold uppercase tracking-wider">NRC Range</p>
+          <p class="text-3xl font-bold text-slate-900">0.0-1.0</p>
+        </div>
+        <div class="flex flex-col gap-1 border-l-2 border-primary/30 pl-6 py-2">
+          <p class="text-slate-500 text-sm font-semibold uppercase tracking-wider">Resources</p>
+          <p class="text-3xl font-bold text-slate-900">50+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic Cards Section -->
+  <section class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-12">
+        <div class="max-w-2xl">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Explore Home Acoustics</h2>
+          <p class="text-slate-600">Deep dives into residential acoustic design, soundproofing, and audio science for modern homes.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {pillarLinks.map((pillar, index) => (
+          <a href={pillar.href} class="group cursor-pointer block">
+            <div class="aspect-video rounded-lg overflow-hidden mb-6 bg-slate-200 border border-slate-200 group-hover:border-primary/30 transition-all">
+              <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 group-hover:from-primary/5 group-hover:to-slate-200 transition-all">
+                <span class="material-symbols-outlined text-5xl text-primary/30 group-hover:text-primary/50 transition-all">
+                  {index === 0 ? 'menu_book' : index === 1 ? 'history' : index === 2 ? 'science' : index === 3 ? 'school' : index === 4 ? 'trending_up' : index === 5 ? 'build' : 'help_center'}
+                </span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-primary text-xs font-bold uppercase tracking-widest">{String(index + 1).padStart(2, '0')}</span>
+              <h3 class="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">{pillar.title}</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">{pillar.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-slate-900 text-white overflow-hidden relative">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#1773cf,transparent_70%)]"></div>
+    </div>
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="text-3xl sm:text-4xl font-black mb-6">Master Home Acoustic Science</h2>
+      <p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
+        Access comprehensive technical resources, measurement guides, and acoustic treatment solutions for residential spaces.
+      </p>
+      <a href="/home-acoustics/" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-lg transition-all">
+        Start Learning
+      </a>
+    </div>
+  </section>
+</BaseLayout>

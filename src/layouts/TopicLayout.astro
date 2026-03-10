@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const { title, description, relatedTopics = [], keyPoints = [] } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Extract current pillar from URL for breadcrumbs
+const pathParts = Astro.url.pathname.split('/').filter(Boolean);
+const currentPillar = pathParts.length > 1 ? pathParts[1] : 'overview';
+const topicSlug = pathParts[0] || 'home-acoustics';
+
+const breadcrumbNames: Record<string, string> = {
+  'home-acoustics': 'Home Acoustics',
+  'history': 'History',
+  'technical-deep-dive': 'Technical',
+  'ontology': 'Ontology',
+  'trends': 'Trends',
+  'tools': 'Tools',
+  'challenges': 'Challenges',
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+      <a href="/" class="hover:text-primary transition-colors">Home</a>
+      <span class="material-symbols-outlined text-xs">chevron_right</span>
+      <a href={`/${topicSlug}/`} class="hover:text-primary transition-colors">{breadcrumbNames[topicSlug] || 'Topic'}</a>
+      {currentPillar !== 'overview' && (
+        <>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-slate-900">{breadcrumbNames[currentPillar] || currentPillar}</span>
+        </>
+      )}
+    </nav>
+
+    <div class="flex flex-col md:flex-row gap-12">
+      <Sidebar relatedTopics={relatedTopics} keyPoints={keyPoints} />
+      
+      <article class="flex-1 max-w-4xl">
+        <slot />
+      </article>
+    </div>
+  </div>
+</BaseLayout>
