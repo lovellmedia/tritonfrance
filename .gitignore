@@ -12,3 +12,6 @@ Thumbs.db
 test-results/
 link-verification-report.json
 netlify-site-info.json
+
+# Local Netlify folder
+.netlify
